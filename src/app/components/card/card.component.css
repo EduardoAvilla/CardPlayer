@@ -1,0 +1,10 @@
+.card{
+  background-image: url('../../../assets/background.png');
+  background-repeat: no-repeat;
+   background-size: contain;
+    background-size: 100%;
+    background-position: bottom;
+font-family: verdana;
+box-shadow: 20px 20px 40px black;
+
+}

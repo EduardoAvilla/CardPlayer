@@ -1,0 +1,33 @@
+
+
+.home{
+  height: 115vh;
+  background-image: url('../../src/assets/lateral2.png');
+   background-repeat: no-repeat;
+  background-size: contain;
+   background-size:  50% 115%;
+   background-position: right;
+
+}
+p{
+  overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 8;
+-webkit-box-orient: vertical;
+}
+
+.card_player{
+  background-image: url('../assets/background.png');
+  background-repeat: no-repeat;
+   background-size: contain;
+    background-size: 100%;
+    background-position: bottom;
+font-family: verdana;
+box-shadow: 20px 20px 40px black;
+
+}
+
+h4{
+  font-family: tahoma;
+}
