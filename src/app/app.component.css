@@ -5,7 +5,7 @@
   background-image: url('../../src/assets/lateral2.png');
    background-repeat: no-repeat;
   background-size: contain;
-   background-size:  50% 115%;
+   background-size:  50% 100%;
    background-position: right;
 
 }
@@ -31,3 +31,4 @@ box-shadow: 20px 20px 40px black;
 h4{
   font-family: tahoma;
 }
+
