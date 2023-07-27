@@ -1,9 +1,11 @@
-<div class="container-fluid  w-100 home">
-  <div class="row flex-column-reverse   flex-md-row ">
+<div class="container-fluid w-100 home">
+  <div class="row flex-column-reverse flex-md-row">
     <!-- Seção 1 -->
-    <div class="col-md-6 d-flex " style="height: 125vh;">
-      <section class="w-100   mt-5 h-50 d-column flex-wrap">
-        <section class="w-100  h-25 d-flex align-items-start flex-wrap">
+    <div class="col-md-6 d-flex" style="height: 125vh">
+      <section
+        class="w-100 ms-5 ps-5 mt-5 h-50 d-flex justify-content-center flex-wrap"
+      >
+        <section class="w-100 h-25 d-flex flex-wrap">
           <h3
             class="badge shadow text-wrap pt-3"
             style="width: 75%; height: 3rem; background-color: rgb(218, 18, 18)"
@@ -11,7 +13,9 @@
             BUSQUE SEU JOGADOR
           </h3>
           <section class="h-50 d-column w-100">
-            <label for="exampleFormControlInput1" class="form-label">Nome</label>
+            <label for="exampleFormControlInput1" class="form-label"
+              >Nome</label
+            >
             <input
               [(ngModel)]="nomeJogador"
               type="email"
@@ -19,18 +23,23 @@
               id="exampleFormControlInput1"
               placeholder="Ex: Neymar Jr."
             />
+            <p class="invalid-feedback p-3 fw-bolder" *ngIf="error">
+              Jogador Não Encontrado. <br />Refaça sua pesquisa.
+            </p>
+
             <div class="d-flex w-75 justify-content-center">
               <button
+                *ngIf="!error"
                 type="button"
                 class="btn mt-1 bg-dark text-light btn-sm"
-                (click)="buscarplayer()"
+                (click)="buscarPlayer()"
               >
                 Pesquisar
               </button>
             </div>
           </section>
         </section>
-        <section class="w-100 mt-5 h-50 align-items-end d-flex   flex-wrap">
+        <section class="w-100 mt-5 h-50 align-items-end d-flex flex-wrap">
           <h3
             class="badge shadow text-wrap pt-3"
             style="width: 75%; height: 3rem; background-color: rgb(218, 18, 18)"
@@ -48,42 +57,46 @@
               <div class="d-column w-100">
                 <div class="d-flex pt-5 w-100 justify-content-around">
                   <p
-                    class="badge pt-2 text-wrap"
+                    class="badge m-1 pt-2 text-wrap"
                     style="
                       width: auto;
-                      height: 2.5rem;
+                      height: 4.5rem;
                       background-color: rgb(218, 18, 18);
                     "
                   >
+                    <br />
+
                     Idade: {{ idade }}
                   </p>
                   <p
-                    class="badge pt-2 text-wrap"
+                    class="badge pt-2 m-1 text-wrap"
                     style="
-                      width: 60px;
-                      height: 3rem;
+                      width: 120px;
+                      height: auto;
                       background-color: rgb(218, 18, 18);
                     "
                   >
+                    <br />
                     Peso: {{ jogador.player[0].strWeight }}
                     kg
                   </p>
                   <p
-                    class="badge pt-3 text-wrap"
+                    class="badge pt-3 align-middle m-1 text-wrap"
                     style="
                       width: auto;
-                      height: 3rem;
+                      height: auto;
                       background-color: rgb(218, 18, 18);
                     "
                   >
                     Altura:
+                    <br /><br />
                     {{ jogador.player[0].strHeight }} cm
                   </p>
                   <p
-                    class="badge pt-3 text-wrap"
+                    class="badge pt-4 text-wrap"
                     style="
                       width: auto;
-                      height: 3rem;
+                      height: 4.8rem;
                       background-color: rgb(218, 18, 18);
                     "
                   >
@@ -93,88 +106,86 @@
 
                 <div class="d-flex w-100 justify-content-between">
                   <p
-                    class="badge pt-2 text-wrap"
-                    style="
-                      width: auto;
-                      height: 2.5rem;
-                      background-color: rgb(218, 18, 18);
-                    "
+                    class="badge m-1 pt-2 text-wrap"
+                    style="height: 3.7rem; background-color: rgb(218, 18, 18)"
                   >
-                    Clube: {{ jogador.player[0].strTeam }}
+                    Clube:
+                    {{
+                      jogador.player[0].strTeam ||
+                        jogador.player[0].strNationality
+                    }}
                   </p>
                   <p
-                    class="badge pt-2 text-wrap"
-                    style="
-                      width: auto;
-                      height: 2.5rem;
-                      background-color: rgb(218, 18, 18);
-                    "
+                    class="badge m-1 pt-2 text-wrap"
+                    style="height: auto; background-color: rgb(218, 18, 18)"
                   >
                     Camisa:
                     {{ jogador.player[0].strNumber }}
                   </p>
                   <p
-                    class="badge pt-2 text-wrap"
-                    style="
-                      width: auto;
-                      height: 2.5rem;
-                      background-color: rgb(218, 18, 18);
-                    "
+                    class="badge m-1 pt-2 text-wrap"
+                    style="height: auto; background-color: rgb(218, 18, 18)"
                   >
                     Posição: {{ jogador.player[0].strPosition }}
                   </p>
                   <p
-                    class="badge pt-2 text-wrap"
-                    style="
-                      width: auto;
-                      height: 2.5rem;
-                      background-color: rgb(218, 18, 18);
-                    "
+                    class="badge m-1 pt-2 text-wrap"
+                    style="height: auto; background-color: rgb(218, 18, 18)"
                   >
-                    Nacionalidade: {{ jogador.player[0].strTeam2 }}
+                    Nacionalidade:
+                    {{
+                      jogador.player[0].strTeam2 ||
+                        jogador.player[0].strNationality
+                    }}
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </section>
-      </section>    </div>
+      </section>
+    </div>
 
     <!-- Seção 2 -->
-    <div class="col-md-6" style="height: 125vh;">
-      <section class="w-50 h-100 d-flex pt-5   justify-content-start">
+    <div
+      class="col-md-6 d-flex justify-content-center justify-content-md-start"
+      style="height: 125vh"
+    >
+      <section class="w-50 h-100 d-flex pt-5">
         <div
           class="card card_player"
           style="width: 50vh; height: 70vh; background-color: #212121"
         >
           <img
-            src="{{ jogador.player[0].strCutout || jogador.player[0].strThumb }}"
+            src="{{
+              jogador.player[0].strCutout || jogador.player[0].strThumb
+            }}"
             class="card-img mt-5 pt-4"
             style="height: auto"
-            alt="...">
-           <div class="card-img-overlay d-flex flex-column justify-content-between">
-             <div class="logo d-flex align-items-end justify-content-end">
-
-            </div>
-            <div class="h-75 d-flex w-100 justify-content-center align-items-end">
+            alt="..."
+          />
+          <div
+            class="card-img-overlay d-flex flex-column justify-content-between"
+          >
+            <div class="logo d-flex align-items-end justify-content-end"></div>
+            <div
+              class="h-75 d-flex w-100 justify-content-center align-items-end"
+            >
               <h5 class="badge text-bg-light text-dark fw-bolder"></h5>
             </div>
             <div
               class="d-flex text-light justify-content-center align-items-stretch"
             >
-
               <h5
                 class="badge text-wrap p-3 w-100"
                 style="background-color: rgb(20, 20, 20)"
               >
-                {{ jogador.player[0].strPosition }},             {{ idade }}
-
-
+                {{ jogador.player[0].strPosition }}, {{ idade }}
               </h5>
-
             </div>
           </div>
         </div>
-      </section>    </div>
+      </section>
+    </div>
   </div>
 </div>
