@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -14,24 +14,34 @@ export class AppComponent implements OnInit {
   ano: any;
   idade: any;
   Idade: number = 1;
-  constructor(private http: HttpClient) {
-}
+  error: boolean = false;
+  constructor(private http: HttpClient) {}
   ngOnInit(): void {
-this.buscarplayer();
-
+    this.buscarPlayer();
   }
 
-  buscarplayer() {
+  buscarPlayer =()=> {
     this.url = this.nomeJogador;
 
-    this.http.get(`https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?p=${this.url}`).subscribe(
-      (resultado) => {
-        this.jogador = resultado;
-        this.data = this.jogador.player[0];
-        this.ano = this.data.dateBorn.substr(0, 4);
-        this.calcula(this.data);
-       },
-    );
+    this.http
+      .get(
+        `https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?p=${this.url}`
+      )
+      .subscribe((resultado) => {
+        try {
+          this.jogador = resultado;
+          this.data = this.jogador.player[0];
+          this.ano = this.data.dateBorn.substr(0, 4);
+          this.calcula(this.data);
+        } catch (error) {
+          this.error = true;
+          console.error(error);
+          const setError = () => {
+            this.error = false;
+          };
+          setInterval(setError, 2000);
+        }
+      });
   }
 
   data: any;
