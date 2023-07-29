@@ -54,91 +54,46 @@
               <p class="card-text text-start" maxLength="100">
                 {{ jogador.player[0].strDescriptionEN }}
               </p>
-              <div class="d-column w-100">
-                <div class="d-flex pt-5 w-100 justify-content-around">
-                  <p
-                    class="badge m-1 pt-2 text-wrap"
-                    style="
-                      width: auto;
-                      height: 4.5rem;
-                      background-color: rgb(218, 18, 18);
-                    "
-                  >
-                    <br />
-
+              <div class="d-column w-100 flex-wrap">
+                <section class="d-flex w-100 justify-content-between">
+                  <P class="badge bg-danger text-wrap" style="width: 6rem">
                     Idade: {{ idade }}
-                  </p>
-                  <p
-                    class="badge pt-2 m-1 text-wrap"
-                    style="
-                      width: 120px;
-                      height: auto;
-                      background-color: rgb(218, 18, 18);
-                    "
+                  </P>
+                  <P class="badge bg-danger text-wrap" style="width: 6rem">
+                    Peso: {{ jogador.player[0].strWeight.slice(0,5)  }}
+                  </P>
+                  <P class="badge bg-danger text-wrap"   maxlength="10" style="width: 6rem">
+                    {{ jogador.player[0].strHeight.slice(0,5) }} cm
+                  </P>
+                </section>
+                <section class="d-flex w-100 justify-content-between">
+                  <P class="badge bg-danger text-wrap" style="width: 6rem">
+                    Nascimento: {{ jogador.player[0].dateBorn }}                  </P>
+                  <P
+                    class="badge bg-danger text-wrap text-danger"
+                    style="width: 6rem"
                   >
-                    <br />
-                    Peso: {{ jogador.player[0].strWeight }}
-                    kg
-                  </p>
-                  <p
-                    class="badge pt-3 align-middle m-1 text-wrap"
-                    style="
-                      width: auto;
-                      height: auto;
-                      background-color: rgb(218, 18, 18);
-                    "
-                  >
-                    Altura:
-                    <br /><br />
-                    {{ jogador.player[0].strHeight }} cm
-                  </p>
-                  <p
-                    class="badge pt-4 text-wrap"
-                    style="
-                      width: auto;
-                      height: 4.8rem;
-                      background-color: rgb(218, 18, 18);
-                    "
-                  >
-                    Nascimento: {{ jogador.player[0].dateBorn }}
-                  </p>
-                </div>
-
-                <div class="d-flex w-100 justify-content-between">
-                  <p
-                    class="badge m-1 pt-2 text-wrap"
-                    style="height: 3.7rem; background-color: rgb(218, 18, 18)"
-                  >
-                    Clube:
+                    .
+                  </P>
+                  <P class="badge bg-danger text-wrap" style="width: 6rem">
                     {{
                       jogador.player[0].strTeam ||
                         jogador.player[0].strNationality
                     }}
-                  </p>
-                  <p
-                    class="badge m-1 pt-2 text-wrap"
-                    style="height: auto; background-color: rgb(218, 18, 18)"
-                  >
-                    Camisa:
-                    {{ jogador.player[0].strNumber }}
-                  </p>
-                  <p
-                    class="badge m-1 pt-2 text-wrap"
-                    style="height: auto; background-color: rgb(218, 18, 18)"
-                  >
-                    Posição: {{ jogador.player[0].strPosition }}
-                  </p>
-                  <p
-                    class="badge m-1 pt-2 text-wrap"
-                    style="height: auto; background-color: rgb(218, 18, 18)"
-                  >
-                    Nacionalidade:
+                  </P>
+                </section>
+                <section class="d-flex w-100 justify-content-between">
+                  <P class="badge bg-danger text-wrap" style="width: 6rem">
+                   Camisa: {{ jogador.player[0].strNumber }}                  </P>
+                  <P class="badge bg-danger text-wrap" style="width: 6rem">
+                    Posição: {{ jogador.player[0].strPosition }}                  </P>
+                  <P class="badge bg-danger text-wrap" style="width: 6rem">
                     {{
                       jogador.player[0].strTeam2 ||
                         jogador.player[0].strNationality
                     }}
-                  </p>
-                </div>
+                  </P>
+                </section>
               </div>
             </div>
           </div>
