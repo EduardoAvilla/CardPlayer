@@ -38,7 +38,7 @@ h4{
 @media (max-width: 470px)
 {
   .persona_player{
-    max-height: 60vh ;
+    max-height: 55vh ;
 
   }
   .card_player{
@@ -49,7 +49,7 @@ h4{
     background-position: bottom;
 font-family: verdana;
 box-shadow: 20px 20px 40px black;
-height: 45vh;
+height: 40vh;
   }
 
   .card_info_player{
